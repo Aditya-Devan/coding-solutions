@@ -48,44 +48,54 @@ Output: [1,5,2,4,3]
 ## Solution
 
 **Language:** Java  
-**Runtime:** 4 ms (beats 9.65%)  
-**Memory:** 50.4 MB (beats 6.91%)  
-**Submitted:** 2026-08-18T14:26:43.726Z  
+**Runtime:** 1 ms (beats 99.89%)  
+**Memory:** 49.2 MB (beats 54.36%)  
+**Submitted:** 2026-08-18T14:55:11.297Z  
 
 ```java
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
+// Step 1: Find the middle of the linked list using fast & slow pointers
+// Step 2: Reverse the second half of the linked list
+     // Disconnect the first half from the second half
+// Step 3: Interleave/merge the first half and reversed second half
+
 class Solution {
     public void reorderList(ListNode head) {
-        if (head == null || head.next == null) return;
-
-        List<ListNode> list = new ArrayList<>();
-        ListNode temp = head;
-        while (temp != null) {
-            list.add(temp);
-            temp = temp.next;
+        if (head == null || head.next == null) {
+            return;
         }
 
-        int left = 0;
-        int right = list.size() - 1;
-
-        while (left < right) {
-            list.get(left).next = list.get(right);
-            left++;
-            if (left >= right) break;
-            list.get(right).next = list.get(left);
-            right--;
+        
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        list.get(left).next = null;
+     
+        ListNode curr = slow.next;
+        slow.next = null; 
+        ListNode prev = null;
+
+        while (curr != null) {
+            ListNode nextTemp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextTemp;
+        }
+        ListNode second = prev; 
+
+        ListNode first = head;
+        while (second != null) {
+            ListNode tmp1 = first.next;
+            ListNode tmp2 = second.next;
+
+            first.next = second;
+            second.next = tmp1;
+
+            first = tmp1;
+            second = tmp2;
+        }
     }
 }
 ```
