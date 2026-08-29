@@ -45,9 +45,9 @@ Explanation: left = [1,1,1,0], right = [6,12]
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms  
-**Memory:** 42.6 MB  
-**Submitted:** 2026-08-29T05:47:14.364Z  
+**Runtime:** 3 ms (beats 90.71%)  
+**Memory:** 86.4 MB (beats 53.93%)  
+**Submitted:** 2026-08-29T05:47:23.980Z  
 
 ```java
 class Solution {
