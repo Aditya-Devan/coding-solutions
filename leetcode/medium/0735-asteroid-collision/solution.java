@@ -28,11 +28,8 @@ class Solution {
                 }
             } 
             else { 
-               // if (num < 0) {
+             
                     st.push(num); 
-                // } else {
-                //     st.push(num);
-                // }
             }
         }
 
