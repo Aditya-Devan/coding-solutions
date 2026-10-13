@@ -59,9 +59,9 @@ Explanation: The asteroid -6 makes the asteroid 3 and 5 explode, and then contin
 ## Solution
 
 **Language:** Java  
-**Runtime:** 6 ms (beats 21.22%)  
-**Memory:** 47.4 MB (beats 13.00%)  
-**Submitted:** 2026-08-12T15:40:24.593Z  
+**Runtime:** 6 ms (beats 18.58%)  
+**Memory:** 47.4 MB (beats 11.06%)  
+**Submitted:** 2026-10-13T14:19:55.771Z  
 
 ```java
 class Solution {
@@ -94,11 +94,8 @@ class Solution {
                 }
             } 
             else { 
-               // if (num < 0) {
+             
                     st.push(num); 
-                // } else {
-                //     st.push(num);
-                // }
             }
         }
 
