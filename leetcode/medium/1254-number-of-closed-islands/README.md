@@ -51,9 +51,9 @@ Output: 2
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms  
-**Memory:** 41.7 MB  
-**Submitted:** 2026-10-25T15:42:47.373Z  
+**Runtime:** 2 ms (beats 99.84%)  
+**Memory:** 46 MB (beats 90.56%)  
+**Submitted:** 2026-10-25T15:42:48.127Z  
 
 ```java
 
