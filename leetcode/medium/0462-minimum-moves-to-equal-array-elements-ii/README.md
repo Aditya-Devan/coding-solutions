@@ -42,77 +42,26 @@ Output: 16
 ## Solution
 
 **Language:** Java  
-**Runtime:** 11 ms (beats 33.80%)  
-**Memory:** 46.5 MB (beats 96.20%)  
-**Submitted:** 2026-11-02T11:31:14.148Z  
+**Runtime:** 10 ms (beats 83.76%)  
+**Memory:** 46.3 MB (beats 97.44%)  
+**Submitted:** 2026-11-02T11:40:40.852Z  
 
 ```java
 class Solution {
     public int minMoves2(int[] nums) {
+        int n = nums.length;
+
         Arrays.sort(nums);
-        int len = nums.length;
-        long[] prefix = new long[len];
-        prefix[0] = nums[0];
-        for (int i = 1; i < len; i++) {
-            prefix[i] = nums[i] + prefix[i - 1];
+
+        int mid = nums[n / 2];
+
+        int moves = 0;
+        for (int i = 0; i < n / 2; i++) {
+            moves += Math.abs(nums[i] - mid);
+            moves += Math.abs(nums[n - i - 1] - mid);
         }
 
-        int min = nums[0];
-        int max = nums[len - 1];
-        long ans = Long.MAX_VALUE;
-
-        while (min <= max) {
-            int mid = min + (max - min) / 2;
-            int idx = findMaxIndex(nums, mid);
-            
-            long moves = 0;
-            if (idx != -1) {
-                // Elements from 0 to idx are <= mid
-                long leftCount = idx + 1;
-                long leftSum = prefix[idx];
-                moves += (mid * leftCount) - leftSum;
-                
-                // Elements from idx + 1 to len - 1 are > mid
-                long rightCount = len - 1 - idx;
-                long rightSum = prefix[len - 1] - prefix[idx];
-                moves += rightSum - (mid * rightCount);
-            } else {
-                // All elements are > mid
-                long rightSum = prefix[len - 1];
-                moves += rightSum - ((long) mid * len);
-            }   
-
-            ans = Math.min(ans, moves);
-
-            // Cut the search space based on slope/counts
-            // If the number of elements <= mid is less than elements > mid, 
-            // we need a larger target to minimize absolute differences.
-            int leftCount = (idx == -1) ? 0 : (idx + 1);
-            int rightCount = len - leftCount;
-
-            if (leftCount < rightCount) {
-                min = mid + 1;
-            } else {
-                max = mid - 1;
-            }
-        }
-
-        return (int) ans;
-    }
-
-    private int findMaxIndex(int[] nums, int target) {
-        int low = 0, high = nums.length - 1;
-        int ans = -1;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (nums[mid] <= target) {
-                ans = mid;
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
-        }
-        return ans;
+        return moves;
     }
 }
 ```
