@@ -61,14 +61,14 @@ Output: 1
 ## Solution
 
 **Language:** Java  
-**Runtime:** 6 ms (beats 35.23%)  
-**Memory:** 46.4 MB (beats 23.99%)  
-**Submitted:** 2026-11-05T06:32:36.503Z  
+**Runtime:** 7 ms (beats 29.81%)  
+**Memory:** 46 MB (beats 70.53%)  
+**Submitted:** 2026-11-05T06:33:47.958Z  
 
 ```java
 class Solution {
     public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
-        Arrays.sort(arr1);
+        //Arrays.sort(arr1);
         Arrays.sort(arr2);
         int ans = 0;
         for (int i = 0; i < arr1.length; i++) {
