@@ -41,9 +41,9 @@ Output: 1
 ## Solution
 
 **Language:** Java  
-**Runtime:** 1 ms  
-**Memory:** 42.1 MB  
-**Submitted:** 2026-11-19T14:01:02.560Z  
+**Runtime:** 6 ms (beats 31.05%)  
+**Memory:** 43 MB (beats 79.92%)  
+**Submitted:** 2026-11-19T14:13:50.394Z  
 
 ```java
 class Solution {
@@ -54,9 +54,9 @@ class Solution {
         int ans=0;
         for(int i=0;i<len;i++){
            if(citations[i]==0) continue;
-           int h=citations[i];
-           if(j-i+1>=h){
-            ans=Math.max(ans,h);
+           int h=len-i;
+           if(j-i+1>=h && citations[i]>=h){
+               return h;
            }
         }
         return ans;
