@@ -41,24 +41,30 @@ Output: 1
 ## Solution
 
 **Language:** Java  
-**Runtime:** 6 ms (beats 31.05%)  
-**Memory:** 43 MB (beats 79.92%)  
-**Submitted:** 2026-11-19T14:13:50.394Z  
+**Runtime:** 2 ms (beats 73.07%)  
+**Memory:** 43.3 MB (beats 52.19%)  
+**Submitted:** 2026-11-19T14:17:55.461Z  
 
 ```java
 class Solution {
     public int hIndex(int[] citations) {
-        Arrays.sort(citations);
-        int len=citations.length;
-        int j=len-1;
-        int ans=0;
-        for(int i=0;i<len;i++){
-           if(citations[i]==0) continue;
-           int h=len-i;
-           if(j-i+1>=h && citations[i]>=h){
-               return h;
-           }
+        int n = citations.length;
+
+        int freq[] = new int[1001];
+        for(int i=0; i<n; i++) {
+            freq[citations[i]]++;
         }
+
+        int ans = 0;
+        int count = 0;
+        for(int i=1000; i>=0; i--) {
+            count += freq[i];
+            if(count >= i) {
+                ans = i;
+                break;
+            }
+        }
+
         return ans;
     }
 }
