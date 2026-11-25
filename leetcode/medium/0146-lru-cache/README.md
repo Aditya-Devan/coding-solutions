@@ -51,9 +51,9 @@ lRUCache.get(4);    // return 4
 ## Solution
 
 **Language:** Java  
-**Runtime:** 42 ms (beats 95.88%)  
-**Memory:** 131.3 MB (beats 53.42%)  
-**Submitted:** 2026-08-15T16:08:29.979Z  
+**Runtime:** 13 ms (beats 98.27%)  
+**Memory:** 58.2 MB (beats 72.52%)  
+**Submitted:** 2026-11-25T13:35:12.383Z  
 
 ```java
 class LRUCache {
