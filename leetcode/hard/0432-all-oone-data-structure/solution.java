@@ -62,7 +62,7 @@ class AllOne {
             curNode.keys.remove(key);
             if (curNode.keys.isEmpty()) {
                 removeNode(curNode);
-            }
+            }           
         }
     }
 
