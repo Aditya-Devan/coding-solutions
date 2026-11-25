@@ -51,9 +51,9 @@ allOne.getMinKey(); // return "leet"
 ## Solution
 
 **Language:** Java  
-**Runtime:** 79 ms (beats 53.09%)  
-**Memory:** 78.8 MB (beats 61.64%)  
-**Submitted:** 2026-11-12T18:47:21.120Z  
+**Runtime:** 81 ms (beats 43.00%)  
+**Memory:** 79.4 MB (beats 29.48%)  
+**Submitted:** 2026-11-25T16:00:52.952Z  
 
 ```java
 class AllOne {
@@ -120,7 +120,7 @@ class AllOne {
             curNode.keys.remove(key);
             if (curNode.keys.isEmpty()) {
                 removeNode(curNode);
-            }
+            }           
         }
     }
 
